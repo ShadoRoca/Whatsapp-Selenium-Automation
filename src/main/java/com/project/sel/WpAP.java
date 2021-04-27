@@ -1,7 +1,12 @@
 package com.project.sel;
+
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Keys;
-
+import java.io.File;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,9 +20,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -226,7 +228,11 @@ public class WpAP {
         
         WpAP automatedwa = new WpAP();
 
-        System.setProperty("webdriver.chrome.driver", "/home/rodrigo/Documentos/Selenium/wp-project/src/main/chromedriver");
+        File resource = new File("src/main/resources/chromedriver");
+
+        
+        System.setProperty("webdriver.chrome.driver", resource.getAbsolutePath());
+        
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
